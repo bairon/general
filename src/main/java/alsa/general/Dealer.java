@@ -67,10 +67,11 @@ public class Dealer implements Runnable{
     }
 
     public String closestNumberAnnouncer() {
-        return null;
+        return vp.closestNumberAnnouncer;
     }
 
-    public long gameTimeToStart() {
-        return 0;
+    public long gameTimeToStart()
+    {
+        return vp.gameTimeToStart;
     }
 }
