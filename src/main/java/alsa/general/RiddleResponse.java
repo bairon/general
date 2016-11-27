@@ -19,4 +19,17 @@ public class RiddleResponse {
         this.announce = announce;
         this.time = time;
     }
+    @Override
+    public String toString() {
+        return time == 0 ? "{" +
+                //"нижняя = " + low +
+                //", верхняя = " + high +
+                ", D = " + Utils.format(high - low) +
+                ", ближайшее = " + Utils.format(last) +
+                ", назвал = " + announce  +
+                ", следующее = " + Utils.format(next) + "}" :
+                "победитель " + announce +
+                        " число " + Utils.format(last) +
+                        " время до следующей игры " + time;
+    }
 }

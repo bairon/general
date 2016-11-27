@@ -5,6 +5,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -21,6 +23,22 @@ public class Utils {
     public static final Pattern p = Pattern.compile("\\d+");
     public static final String SERVER_DATE_FORMAT = "MMM, dd yyyy HH:mm:ss";//Nov, 03 2011 21:27:29
     public static final SimpleDateFormat serverDateFormat = new SimpleDateFormat(SERVER_DATE_FORMAT, Locale.ENGLISH);
+
+    public static void soutn(String message) {
+        sout(message + "\n");
+    }
+    public static void sout(Object o) {
+        String port = System.getProperty("idea.launcher.port");
+        try {
+            if (Utils.isBlank(port))
+                System.out.write(o.toString().getBytes("Cp866"));
+            else
+                System.out.write(o.toString().getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void sleep(final int i) {
         try {
@@ -95,5 +113,4 @@ public class Utils {
             return Integer.parseInt(Utils.between(between, "<a href=\"/bank/gold\"><span></span><b>", "</b>"));
         else return 0;
     }
-
 }
