@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,6 +23,7 @@ public class RiddleController {
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(value = "/riddle", method = RequestMethod.POST)
+    @ResponseBody
     public RiddleResponse riddle(RiddleRequest request) {
         System.out.println("Request " + request);
         if (request.number == -1) {
