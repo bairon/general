@@ -96,7 +96,7 @@ public abstract class HeaderPage {
 
     private void parseHealth(String response) {
         String healthBar = Utils.between(response, "<b id=\"healthValue\" class=\"\">", "<i id=\"healthTimer\"");
-        String current = healthBar.substring(0, healthBar.indexOf("</b><b>"));
+        String current = healthBar.substring(0, healthBar.indexOf("</b>"));
         String maxHealth = Utils.between(healthBar, "</b><b>/", "</b>");
         this.cur_health = Long.parseLong(current.isEmpty() ? "0" : current);
         this.health = Long.parseLong(maxHealth.isEmpty() ? "0" : maxHealth);
