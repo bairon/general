@@ -57,9 +57,9 @@ public abstract class HeaderPage {
                 "class=\"yellow\">", "!</b>").trim();
         this.cur_level_percent = Utils.between(response, "<div class=\"level\" style=\"width:", "%;\"></div>");
 
-        parseHealth(response);
-        parseEnergy(response);
-        parseAmmo(response);
+        //parseHealth(response);
+        //parseEnergy(response);
+        //parseAmmo(response);
         this.terrorrist = response.contains("Шахта будет захвачена");
         this.canDrill = response.contains("shaft/drill");
         if (response.contains("Шансы добычи:"))
